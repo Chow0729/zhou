@@ -45,4 +45,34 @@ public class RoomTypeServiceImpl implements RoomTypeService{
         returnMap.put("total", total);
         return returnMap;
     }
+
+
+    @Override
+    public Map<String, Object> delRoomTypes(Integer[] ids) {
+        Map<String, Object> map=new HashMap<String,Object>();
+        return map;
+    }
+
+
+
+    @Override
+    public Map<String, Object> addRoomType(RoomType roomType) {
+        Map<String, Object> map=new HashMap<String,Object>();
+        int result=roomTypeDao.insert(roomType);
+        map.put("result", result);
+        if(result>0) {
+            map.put("message", "添加成功");
+        }else {
+            map.put("message", "添加失败");
+        }
+        return map;
+    }
+
+
+
+    @Override
+    public Map<String, Object> updateRoomType(RoomType roomType) {
+        Map<String, Object> map=new HashMap<String,Object>();
+        return map;
+    }
 }

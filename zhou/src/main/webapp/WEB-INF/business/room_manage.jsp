@@ -175,7 +175,7 @@
                                             <label class="col-sm-4 control-label" for="txt_roomNum">房间数量</label>
                                             <div class="col-sm-8">
                                                 <input class="form-control"
-                                                    id="txt_roomNum" name="roomNumber" type="number"
+                                                    id="txt_roomNum" name="roomNum" type="number"
                                                     placeholder="请输入房间数量" />
                                             </div>
                                         </div>
@@ -208,8 +208,6 @@
 												</div>
                                         </div>
                                     </div>
-                                    <input type="hidden" id="createdTimeInput" name="createdTime"/>
-                                    <input type="hidden" id="roleIdInput" />
                                 </div>
                             </div>
                         </div>
@@ -218,8 +216,7 @@
                         <button type="button" class="btn btn-default" data-dismiss="modal">
                             <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭
                         </button>
-                        <button type="submit" class="btn btn-primary" id="btn_confirm"
-                            name="submit">
+                        <button type="button" class="btn btn-primary" id="btn_confirm">
                             <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>确认
                         </button>
                     </div>

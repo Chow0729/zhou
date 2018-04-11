@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.zhou.grad.auth.model.QueryParamsModal;
 import com.zhou.grad.business.service.RoomTypeService;
+import com.zhou.grad.entity.RoomType;
 
 @Controller
 @RequestMapping("roomType")
@@ -23,5 +24,12 @@ public class RoomTypeController {
     public Map<String, Object> getAllRoomTypeByPage(@ModelAttribute("params") QueryParamsModal params) {
         System.out.println(params+"     params");
         return roomTypeService.selectAllRoomTypeByPage(params);
+    }
+    
+    @ResponseBody
+    @RequestMapping("addRoomType")
+    public Map<String, Object> addRoomType(RoomType roomType){
+        Map<String, Object> map=roomTypeService.addRoomType(roomType);
+        return map;
     }
 }

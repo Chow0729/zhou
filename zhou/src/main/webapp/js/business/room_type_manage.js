@@ -1,4 +1,9 @@
-
+//提示框toastr的显示控制
+toastr.options = {
+	"positionClass" : "toast-top-center",
+	"timeOut" : "1500"
+}
+var isEdit=false;
 $(function() {
 	//初始化表格
 	var oTableInit = new TableInit();
@@ -122,7 +127,8 @@ var ButtonInit = function() {
 		
 		//新增或修改时点击确定按钮
 		$('#btn_confirm').click(function() {
-			
+			  //  console.log("hhahh");
+			    doAddroomType();
 		});
 		
 		//点击查询按钮
@@ -136,4 +142,25 @@ var ButtonInit = function() {
 //该变房源状态
 function changeRoomTypeStatus() {
 	$('#roomTypeTable').bootstrapTable("refresh");
+}
+
+//添加房间类型
+function doAddroomType(){
+	alert("hahahha");
+	$.ajax({
+		url:"./roomType/addRoomType",
+		data:$("#roomTypeInfoForm").serialize(),
+    	type:"post",
+    	dataType : 'JSON',
+		success : function(map) {
+            if (map.result>0) {
+            	toastr.success(map.message);
+            	$('#roomTypeTable').bootstrapTable("refresh"); // 添加成功之后刷新表格
+            	$('#room_type_modal').modal('hide'); // 隐藏模态框
+            } else {
+            	toastr.error(map.message);
+            	$('#room_type_modal').modal('hide');
+            }
+		}
+    });
 }
