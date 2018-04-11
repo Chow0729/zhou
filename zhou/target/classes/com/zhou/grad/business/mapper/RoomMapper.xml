@@ -89,6 +89,34 @@
       </if>
     </trim>
   </insert>
+  
+    <select id="selectByPage" parameterType="com.zhou.grad.auth.model.QueryParamsModal" resultMap="BaseResultMap">
+    select * from grad_room 
+    <where>
+      <if test="condition != null and condition != ''">
+        IFNULL(${selectedFiled},CONCAT(IFNULL(room_name,''),IFNULL(remark,'')))
+        LIKE CONCAT('%',#{condition},'%')
+      </if>
+      <if test="status >=0">
+        status=#{status}
+      </if>
+    </where>
+    limit #{start},#{pageSize}
+  </select>
+  <select id="countAllRoom" parameterType="com.zhou.grad.auth.model.QueryParamsModal" resultType="int">
+    select count(*) from grad_room
+    <where>
+      <if test="condition != null and condition != ''">
+        IFNULL(${selectedFiled},CONCAT(IFNULL(room_name,''),IFNULL(remark,'')))
+        LIKE CONCAT('%',#{condition},'%')
+      </if>
+      <if test="status >=0">
+        status=#{status}
+      </if>
+    </where>
+  </select>
+  
+  
   <update id="updateByPrimaryKeySelective" parameterType="com.zhou.grad.entity.Room">
     update grad_room
     <set>

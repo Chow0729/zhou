@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Map;
 
 import com.zhou.grad.auth.model.QueryParamsModal;
+import com.zhou.grad.entity.Room;
 import com.zhou.grad.entity.RoomType;
 
 public interface RoomTypeDao {

@@ -62,19 +62,101 @@
 				</div>
 
 				<div id="toolbar" class="btn-group">
-					<button id="btn_add" type="button" class="btn btn-default">
+					<button id="btn_add_room" type="button" class="btn btn-default">
 						<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
 					</button>
-					<button id="btn_edit" type="button" class="btn btn-default">
+					<button id="btn_edit_room" type="button" class="btn btn-default">
 						<span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>修改
 					</button>
-					<button id="btn_delete" type="button" class="btn btn-default">
+					<button id="btn_delete_room" type="button" class="btn btn-default">
 						<span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除
 					</button>
 				</div>
 				<table id="roomTable"></table>
 			</div>
 		</div>
+		
+		<!-- 添加房间 -->
+		<div class="modal fade" id="room_modal" tabindex="-1" role="dialog"
+        aria-labelledby="myModalLabel_room" aria-hidden="true">
+        <form class="form-horizontal" id="roomInfoForm">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"
+                            aria-hidden="true">&times;</button>
+                        <h4 class="modal-title" id="myModalLabel_room">添加房间</h4>
+                    </div>
+                    <div class="modal-body">
+                        <div class="panel-body" style="padding-bottom: 0px;">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">请填写房间信息</div>
+                                <div class="panel-body">
+                                    <div class="row">
+                                        <div class="col-sm-12 form-group">
+                                            <label class="col-sm-2 control-label" for="txt_roomName">房间名称</label>
+                                            <div class="col-sm-10" style="padding-right: 45px;padding-left: 10px;">
+                                                <input class="form-control"
+                                                    id="txt_roomName" name="roomName" type="text"
+                                                    placeholder="请输入房间名称" />
+                                            </div>
+                                          </div>
+                                    </div>
+                                   <!--  <div class="row">
+                                        <div class="col-sm-6 form-group">
+                                            <label class="col-sm-4 control-label" for="txt_roomNum">房间数量</label>
+                                            <div class="col-sm-8">
+                                                <input class="form-control"
+                                                    id="txt_roomNum" name="roomNum" type="number"
+                                                    placeholder="请输入房间数量" />
+                                            </div>
+                                        </div>
+                                        <div class="col-sm-6 form-group">
+                                            <label class="col-sm-4 control-label" for="txt_bedsNum">床位数量</label>
+                                            <div class="col-sm-8">
+													<input class="form-control" id="txt_bedsNum"
+														name="bedsNum" type="number" placeholder="请输入床位数量" />
+												</div>
+                                        </div>
+                                    </div> -->
+                                    <div class="row">
+                                    	<div class="col-sm-6 form-group">
+                                            <label class="col-sm-4 control-label" for="txt_roomType">房间类型</label>
+                                            <div class="col-sm-8">
+													<select class="form-control" id="txt_roomType" name="status"> 
+													    <!-- <option value="-1">请选择</option>
+													    <option value="1">有房</option>
+													    <option value="0">无房</option>
+													    <option value="2">紧张</option> -->
+													</select>
+												</div>
+                                        </div>
+                                        <div class="col-sm-6 form-group">
+                                            <label class="col-sm-4 control-label" for="txt_roomRemark">备注</label>
+                                            <div class="col-sm-8">
+                                                <input class="form-control"
+                                                    id="txt_roomRemark" name="remark" type="text"
+                                                    placeholder="请输入备注" />
+                                            </div>
+                                        </div>
+                                        
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">
+                            <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>关闭
+                        </button>
+                        <button type="button" class="btn btn-primary" id="btn_confirm_room">
+                            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>确认
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </div>
 		<!-- 房间 结束 -->
 
 		<!-- 房间类型 开始 -->

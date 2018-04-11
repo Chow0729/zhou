@@ -56,7 +56,7 @@
     where room_type_id = #{roomTypeId,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.zhou.grad.entity.RoomType">
-    <selectKey keyProperty="roomTypeId" order="BEFORE" resultType="java.lang.Integer">
+    <selectKey keyProperty="roomTypeId" order="AFTER" resultType="java.lang.Integer">
       SELECT LAST_INSERT_ID()
     </selectKey>
     insert into grad_room_type (room_type_id, room_type_name, room_num, 
