@@ -34,4 +34,13 @@ public interface RoomTypeService {
      * @return
      */
     Map<String, Object> delRoomTypes(Integer [] ids);
+    
+    /**
+     * 根据id查看房间类型详情
+     * @param id
+     * @return
+     */
+    RoomType geRoomTypeById(int id);
+    
+    
 }

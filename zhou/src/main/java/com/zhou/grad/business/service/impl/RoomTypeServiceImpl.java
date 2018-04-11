@@ -50,6 +50,13 @@ public class RoomTypeServiceImpl implements RoomTypeService{
     @Override
     public Map<String, Object> delRoomTypes(Integer[] ids) {
         Map<String, Object> map=new HashMap<String,Object>();
+        int result=roomTypeDao.deleteTypeByIds(ids);
+        map.put("result", result);
+        if(result>0) {
+            map.put("message", "删除成功");
+        }else {
+            map.put("message", "删除失败");
+        }
         return map;
     }
 
@@ -73,6 +80,20 @@ public class RoomTypeServiceImpl implements RoomTypeService{
     @Override
     public Map<String, Object> updateRoomType(RoomType roomType) {
         Map<String, Object> map=new HashMap<String,Object>();
+        int result=roomTypeDao.updateByPrimaryKey(roomType);
+        map.put("result", result);
+        if(result>0) {
+            map.put("message", "更新成功");
+        }else {
+            map.put("message", "更新失败");
+        }
         return map;
+    }
+
+
+    @Override
+    public RoomType geRoomTypeById(int id) {
+        RoomType roomType=roomTypeDao.selectByPrimaryKey(id);
+        return roomType;
     }
 }

@@ -3,13 +3,16 @@ package com.zhou.grad.business.dao;
 import java.util.List;
 import java.util.Map;
 
-import com.zhou.grad.auth.model.QueryParamsModal;
-import com.zhou.grad.entity.Room;
 import com.zhou.grad.entity.RoomType;
 
 public interface RoomTypeDao {
     int deleteByPrimaryKey(Integer roomTypeId);
 
+    /**
+     * 添加房间类型
+     * @param record
+     * @return
+     */
     int insert(RoomType record);
 
     int insertSelective(RoomType record);
@@ -29,8 +32,16 @@ public interface RoomTypeDao {
      * @return
      */
     int countAllRoomType(Map<String, Object> map);
+    
 
     int updateByPrimaryKeySelective(RoomType record);
 
+    /**
+     * 修改房间类型
+     * @param record
+     * @return
+     */
     int updateByPrimaryKey(RoomType record);
+    
+    int deleteTypeByIds(Integer [] ids);
 }

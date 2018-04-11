@@ -57,5 +57,6 @@
 	<script src="bootstrap-3.3.7/js/bootstrap-datepicker.js"></script>	
 	<script src="bootstrap-3.3.7/js/notify.min.js"></script>
 	<script src="bootstrap-3.3.7/js/bootstrap-switch.js"></script>
+	<script src="js/auth/plugins/component.js"></script>
 </head>
 </html>

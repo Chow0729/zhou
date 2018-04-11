@@ -312,5 +312,6 @@
         
 		<script type="text/javascript" src="js/business/room_manage.js"></script>
 		<script type="text/javascript" src="js/business/room_type_manage.js"></script>
+		<!-- <script type="text/javascript" src="js/auth/plugins/component.js"></script> -->
 </body>
 </html>

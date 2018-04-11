@@ -121,8 +121,34 @@ var ButtonInit = function() {
 		});
 		
 		// 点击删除按钮
-		$('#btn_delete').click(function() {
-			
+		$('#btn_delete_room_type').click(function() {
+			var ids = getIdSelections();
+
+			if (ids == "") {
+				 toastr.warning('请选择要删除的数据数据');
+				return;
+			}
+
+            Ewin.confirm({ message: "确认要删除选择的数据吗？" }).on(function (e) {
+                if (!e) {
+                    return;
+                }
+			$.ajax({
+				type : "post",
+				url :  "./roomType/delRoomType",
+				data : JSON.stringify(ids),
+				dataType : 'JSON',
+				contentType : "application/json",
+				success : function(map) {
+					if (map.result > 0) {
+						toastr.success(map.message);
+						$('#roomTypeTable').bootstrapTable('refresh');
+					} else {
+						toastr.error(map.message);
+					}
+				}
+			});
+			});
 		});
 		
 		//新增或修改时点击确定按钮
@@ -146,7 +172,6 @@ function changeRoomTypeStatus() {
 
 //添加房间类型
 function doAddroomType(){
-	alert("hahahha");
 	$.ajax({
 		url:"./roomType/addRoomType",
 		data:$("#roomTypeInfoForm").serialize(),
@@ -163,4 +188,12 @@ function doAddroomType(){
             }
 		}
     });
+}
+
+//获取选中行的id
+function getIdSelections() {
+	return $.map($('#roomTypeTable').bootstrapTable('getSelections'),
+			function(row) {
+				return row.roomTypeId;
+			});
 }
